@@ -1,9 +1,9 @@
 #include <stdio.h>
 
 /**
- * main - main function with argument void
+ * main - this function prints a line with puts function
  *
- * return: always returns 0
+ * Return: retuns 0 which means the program executed successfully
  */
 
 int main(void)
