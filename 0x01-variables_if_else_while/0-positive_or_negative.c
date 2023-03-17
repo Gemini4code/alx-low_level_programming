@@ -3,8 +3,8 @@
 #include <stdio.h>
 /* more headers goes there */
 
-/*
- * main - function that prints out a positive or negative number
+/**
+ * main - function that prints out a positive or negative integer
  *
  * Return: 0 means success
  */
