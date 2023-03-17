@@ -8,7 +8,7 @@
 * Tested on **Ubuntu 20.04**
 
 ## Files
-* All the following fies are scripts:
+* All the following files are scripts:
 
 | Filename | Description |
 | -------- | ----------- |
