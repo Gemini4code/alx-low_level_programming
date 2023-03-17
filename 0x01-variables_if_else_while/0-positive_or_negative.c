@@ -4,7 +4,7 @@
 /* more headers goes there */
 
 /*
- * main - start of function
+ * main - function that prints out a positive or negative number
  *
  * Return: 0 means success
  */
