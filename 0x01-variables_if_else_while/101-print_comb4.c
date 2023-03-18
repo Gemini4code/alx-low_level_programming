@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 /**
- * main - prints all combinations of three digits
+ * main - prints all possible different combinations of three digits
  *
  * Return: 0 means success
  */
@@ -12,19 +12,22 @@ int main(void)
 	int y;
 	int z;
 
-	for (x = 0; x < 10; x++)
+	for (x = 48; x < 58; x++)
 	{
-		for (y = 1; y < 10; y++)
+		for (y = 49; y < 58; y++)
 		{
-			for (z = 2; z < 10; z++)
+			for (z = 50; z < 58; z++)
 			{
-				putchar(x + '0');
-				putchar(y + '0');
-				putchar(z + '0');
-				if (x + y + z != 24)
+				if (z > y && y > x)
 				{
-					putchar(',');
-					putchar(' ');
+					putchar(x);
+					putchar(y);
+					putchar(z);
+					if (x != 55 || y != 56)
+					{
+						putchar(',');
+						putchar(' ');
+					}
 				}
 			}
 		}
