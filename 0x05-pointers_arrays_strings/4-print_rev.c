@@ -1,9 +1,9 @@
 #include "main.h"
 
 /**
- * print_rev - imprime en reversa
+ * print_rev - prints a string in reverse
  * @s: string
- * return: 0
+ * return: 0 means success
  */
 
 void print_rev(char *s)

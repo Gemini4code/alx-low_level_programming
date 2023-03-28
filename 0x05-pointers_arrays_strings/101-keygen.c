@@ -6,8 +6,9 @@
  * main - program that generates random valid
  * passwords for the program 101-crackme
  *
- * Return: Always 0 (Success)
+ * Return: 0 means success
  */
+
 int main(void)
 {
 	int pass_wd[100];
