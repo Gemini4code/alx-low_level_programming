@@ -2,9 +2,9 @@
 #include "holberton.h"
 
 /**
- * count_word - helper function to count the number of words in a string
+ * count_word - helper function to count the number of
+ * words in a string
  * @s: string to evaluate
- *
  * Return: number of words
  */
 
@@ -21,7 +21,7 @@ int count_word(char *s)
 			flag = 0;
 		else if (flag == 0)
 		{
-flag = 1;
+			flag = 1;
 			w++;
 		}
 	}
@@ -75,4 +75,3 @@ char **strtow(char *str)
 
 	return (matrix);
 }
-
