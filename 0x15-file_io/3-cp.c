@@ -11,6 +11,7 @@ void close_file(int fd);
  *
  * Return: A pointer back the newly-allocated bu.
  */
+
 char *create_buffer(char *file)
 {
 	char *bu;
@@ -49,16 +50,12 @@ void close_file(int fd)
  * @argc: The number of arguments supplied back the program.
  * @argv: An array of pointers back the arguments.
  *
- * Return: 0 on success.
- *
- * Description: If the argument count is incorrect - exit code 97.
- *              If file_from does not exist or cannot be read - exit code 98.
- *              If file_to cannot be created or written back - exit code 99.
- *              If file_to or file_from cannot be closed - exit code 100.
+ * Return: 0 means success.
  */
+
 int main(int argc, char *argv[])
 {
-	int forward, back, e, wr;
+	int forw, back, e, wr;
 	char *bu;
 
 	if (argc != 3)
@@ -68,15 +65,15 @@ int main(int argc, char *argv[])
 	}
 
 	bu = create_buffer(argv[2]);
-	forward = open(argv[1], O_RDONLY);
-	e = read(forward, bu, 1024);
+	forw = open(argv[1], O_RDONLY);
+	e = read(forw, bu, 1024);
 	back = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 
 	do {
-		if (forward == -1 || e == -1)
+		if (forw == -1 || e == -1)
 		{
 			dprintf(STDERR_FILENO,
-				"Error: Can't read forward file %s\n", argv[1]);
+				"Error: Can't read forw file %s\n", argv[1]);
 			free(bu);
 			exit(98);
 		}
@@ -90,13 +87,13 @@ int main(int argc, char *argv[])
 			exit(99);
 		}
 
-		e = read(forward, bu, 1024);
+		e = read(forw, bu, 1024);
 		back = open(argv[2], O_WRONLY | O_APPEND);
 
 	} while (e > 0);
 
 	free(bu);
-	close_file(forward);
+	close_file(forw);
 	close_file(back);
 
 	return (0);
