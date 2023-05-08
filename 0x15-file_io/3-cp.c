@@ -55,7 +55,7 @@ void close_file(int fd)
 
 int main(int argc, char *argv[])
 {
-	int forw, back, e, wr;
+	int forwd, back, e, wr;
 	char *bu;
 
 	if (argc != 3)
@@ -65,15 +65,15 @@ int main(int argc, char *argv[])
 	}
 
 	bu = create_buffer(argv[2]);
-	forw = open(argv[1], O_RDONLY);
-	e = read(forw, bu, 1024);
+	forwd = open(argv[1], O_RDONLY);
+	e = read(forwd, bu, 1024);
 	back = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 
 	do {
-		if (forw == -1 || e == -1)
+		if (forwd == -1 || e == -1)
 		{
 			dprintf(STDERR_FILENO,
-				"Error: Can't read forw file %s\n", argv[1]);
+				"Error: Can't read forwd file %s\n", argv[1]);
 			free(bu);
 			exit(98);
 		}
@@ -87,13 +87,13 @@ int main(int argc, char *argv[])
 			exit(99);
 		}
 
-		e = read(forw, bu, 1024);
+		e = read(forwd, bu, 1024);
 		back = open(argv[2], O_WRONLY | O_APPEND);
 
 	} while (e > 0);
 
 	free(bu);
-	close_file(forw);
+	close_file(forwd);
 	close_file(back);
 
 	return (0);
